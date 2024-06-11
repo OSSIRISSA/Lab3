@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+}
+
+header {
+    background-color: #ff8c00;
+    color: white;
+    height: 10%;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 75%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+.contact p {
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.login button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    width: 75%;
+    padding-top: 70px;
+}
+
+.menu {
+    position: relative;
+    flex: 2;
+}
+
+.menu h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.categories {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.pizza-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.pizza-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(33% - 40px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pizza-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.pizza-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pizza-item p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.pizza-sizes {
+    margin-bottom: 20px;
+}
+
+.pizza-sizes .size {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.pizza-item button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pizza-count {
+    border-radius: 50%;
+    background-color: darkorange;
+    height: 25px;
+    width: 25px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #a9a9a9;
+}
+
+.cart-header {
+    padding: 20px;
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-counter h2 {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.cart-counter {
+    display: flex;
+}
+
+.cart-items-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6f6;
+    flex-grow: 1;
+}
+
+.cart-items-container .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0 20px 20px;
+    position: relative;
+}
+
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-size: 24px;
+    color: darkorange;
+    margin-bottom: 10px;
+}
+
+.cart-item-characteristics {
+    display: flex;
+    gap: 20px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.cart-item-characteristics span img {
+    margin-right: 5px;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-actions h3 {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.cart-item-actions h2 {
+    font-size: 18px;
+}
+
+.cart-item-actions button {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.increment {
+    background-color: forestgreen;
+    border: 1px solid green;
+    box-shadow: inset 0 -3px 3px #007900;
+}
+
+.increment:hover {
+    background-color: green;
+}
+
+.decrement {
+    background-color: orangered;
+    border: 1px solid red;
+    box-shadow: inset 0 -3px 3px #c20000;
+}
+
+.decrement:hover {
+    background-color: red;
+}
+
+.cart-item-actions .remove {
+    color: darkorange;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    box-shadow: inset 0 -3px 3px #a6a6a6;
+}
+
+.remove:hover {
+    background-color: #e5e5e5;
+}
+
+.cart-item-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -50px;
+}
+
+.cart-item-image img {
+    mix-blend-mode: multiply;
+    max-width: 100%;
+    max-height: 100%;
+    clip-path: inset(0 50% 0 0);
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-footer {
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.total-sum {
+    font-size: 20px;
+}
+
+.cart-footer button {
+    border-radius: 5px;
+    border: 1px solid #e17b00;
+    background-color: #ff8c00;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 30px 30px;
+    flex: 1;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info p {
+    font-size: 14px;
+}
