@@ -5,17 +5,20 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
     background-color: #fffbe8;
-    color: #333;
-    display: flex;
 }
 
 .header-container {
     display: flex;
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    height: 12%;
+    height: 100px;
     padding: 0 20px;
     position: fixed;
     top: 0;
@@ -27,7 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    height: 14%;
+    height: 120px;
 }
 
 .logo{
@@ -70,15 +73,15 @@ body {
 }
 
 .header-actions-bottom{
-    padding: 6px 8px 8px 0;
+    padding: 8px;
 }
 
 .contact{
-    padding: 8px 8px 8px 0;
+    padding: 8px;
     display: flex;
     color: #cecece;
     align-items: center;
-    gap: 60px;
+    gap: 30px;
 }
 
 .contact p {
@@ -98,7 +101,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     padding: 5px 10px;
-    margin: 2px 0;
+    margin: 5px 0;
+}
+
+.extra{
+    display: none;
 }
 
 .login:hover{
@@ -107,6 +114,7 @@ body {
 
 main {
     display: flex;
+    height: 100%;
     width: calc(100% - 340px);
     padding-top: 110px;
 }
@@ -116,12 +124,16 @@ main {
     flex-direction: column;
     position: relative;
     flex: 1;
+    align-items: center;
+    height: 100%;
 }
 
 .categories {
-    display: flex;
+    display: grid;
     margin-top: 10px;
     gap: 10px;
+    justify-items: center;
+    grid-template-columns: repeat(6, 1fr);
     justify-content: center;
     align-items: center;
 }
@@ -150,18 +162,19 @@ main {
 }
 
 .pizza-list {
-    flex: 0;
     display: grid;
     padding: 30px 30px 30px;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     justify-items: center;
-    margin: auto;
+    margin: 0 0 90px;
+    background-color: #fffbe8;
 }
 
 .pizza-item {
     position: relative;
     display: flex;
+    width: 100%;
     flex-direction: column;
     max-width: 300px;
     background-color: white;
@@ -280,6 +293,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     right: 0;
+    top: 0;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -479,13 +493,13 @@ main {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
     border-top: 1px solid #ddd;
     background-color: #f6f6f6;
     color: #a9a9a9;
     text-align: center;
     padding: 20px;
-    bottom: 0;
-    height: 150px;
     width: 100%;
     z-index: 1000;
 }
@@ -496,8 +510,7 @@ footer {
     flex-direction: column-reverse;
     position: fixed;
     bottom: 0;
-
-    height: 15%;
+    height: 140px;
 }
 
 .logo-container-footer .logo{
@@ -548,4 +561,92 @@ footer {
 
 .footer-info p {
     font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+    .pizza-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pizza-item{
+        max-width: unset;
+    }
+
+    html, body {
+        height: auto;
+    }
+
+}
+
+@media (max-width: 1050px) {
+    .hidable{
+        display: none;
+    }
+}
+
+@media (max-width: 950px) {
+    .pizza-list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 950px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 810px) {
+    .contact span {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .header-actions-bottom h2 {
+        display: none;
+    }
+
+    .header-actions .login{
+        display: none;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-actions-bottom{
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .login.extra{
+        display: inline-block;
+    }
+
+    .footer-info p {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact p{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .categories {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .login{
+        font-size: 10px;
+    }
+    footer{
+        padding: 5px 5px 5px 20px;
+    }
+
+    .footer-container{
+        margin-left: 105px;
+    }
 }
