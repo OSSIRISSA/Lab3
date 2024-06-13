@@ -6,7 +6,7 @@
 }
 
 html, body {
-    height: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -167,7 +167,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     justify-items: center;
-    margin: 0 0 90px;
+    margin: 0 0 110px;
     background-color: #fffbe8;
 }
 
@@ -282,6 +282,10 @@ main {
     width: 70px;
 }
 
+.pizza-item button:hover {
+    background-color: #D16200;
+}
+
 .cart {
     display: flex;
     flex-direction: column;
@@ -294,8 +298,7 @@ main {
     position: fixed;
     right: 0;
     top: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: 1001;
 }
 
 .pizza-count {
@@ -321,7 +324,7 @@ main {
 }
 
 .cart-header {
-    padding: 20px;
+    padding: 20px 10px 20px 10px;
     display: flex;
     height: 10%;
     align-items: center;
@@ -344,6 +347,8 @@ main {
     flex-direction: column;
     background-color: #f6f6f6;
     flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .cart-items-container .cart-item {
@@ -570,11 +575,6 @@ footer {
     .pizza-item{
         max-width: unset;
     }
-
-    html, body {
-        height: auto;
-    }
-
 }
 
 @media (max-width: 1050px) {
