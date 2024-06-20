@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pizzaList = document.querySelector('.pizza-list');
     const cartContainer = document.querySelector('.cart-items-container');
     const cartCount = document.getElementById('bought');
+    const pizzaCount = document.getElementById('unbought');
     const totalSumElement = document.querySelector('.total-sum');
     const emptyButton = document.querySelector('.empty-button');
+    const orderButton = document.querySelector('.cart-footer button');
+    const pivotContainer = document.getElementById('pivot-container');
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
     const renderPizzas = (pizzas) => {
@@ -110,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             default:
                 return pizza_info;
         }
+
     };
 
     pizzaList.addEventListener('click', (e) => {
@@ -154,12 +158,28 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     });
 
+    orderButton.addEventListener('click', () => {
+        const cartData = Object.values(cart).map(item => ({
+            Title: item.title,
+            Size: item.size === 'small' ? 'Мала' : 'Велика',
+            Count: item.count,
+            Price: item.price,
+            Total: item.price * item.count
+        }));
+
+        localStorage.setItem('cartData', JSON.stringify(cartData));
+        window.open('pivot.html');
+    });
+
+
     document.querySelectorAll('.category-button').forEach(button => {
         button.addEventListener('click', () => {
             document.querySelector('.category-button.current').classList.remove('current');
             button.classList.add('current');
             const category = button.id;
-            renderPizzas(searchByCategory(category));
+            const filteredPizza = searchByCategory(category);
+            pizzaCount.textContent = Object.keys(filteredPizza).length.toString();
+            renderPizzas(filteredPizza);
         });
     });
 
