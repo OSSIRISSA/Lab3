@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot Table</title>
+</head>
+<body>
+<link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
+<script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+<script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
+<div id="pivot-container"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        new WebDataRocks({
+            container: "#pivot-container",
+            toolbar: true,
+            report: {
+                dataSource: {
+                    data: JSON.parse(localStorage.getItem('cartData'))
+                },
+                slice: {
+                    rows: [
+                        { uniqueName: "Title" },
+                        { uniqueName: "Size" }
+                    ],
+                    columns: [
+                        { uniqueName: "[Measures]" }
+                    ],
+                    measures: [
+                        { uniqueName: "Count", aggregation: "sum" },
+                        { uniqueName: "Price", aggregation: "average" },
+                        { uniqueName: "Total", aggregation: "sum" }
+                    ]
+                },
+                options: {
+                    grid: {
+                        type: "classic"
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
