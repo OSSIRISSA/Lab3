@@ -162,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartData = Object.values(cart).map(item => ({
             Title: item.title,
             Size: item.size === 'small' ? 'Мала' : 'Велика',
+            WeightOne: item.weight,
+            Weight: item.weight * item.count,
             Count: item.count,
             Price: item.price,
             Total: item.price * item.count
